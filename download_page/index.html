@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mod Installer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="moon-mode">
+  <div class="stars"></div>
+  <div class="moon"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-logo">Mod Installer</div>
+    <ul class="nav-links">
+      <li><a href="#help">Help</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://github.com/slo-ghost/installer-downloader" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li class="toggle-wrapper">
+        <label class="switch">
+          <input type="checkbox" id="cursor-toggle" checked />
+          <span class="slider"></span>
+        </label>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Download Section -->
+  <section class="download-section snap-section">
+    <button class="center-button" id="download-btn">Download</button>
+    <div class="scroll-hint"><a href="#help">↓ Help</a></div>
+  </section>
+
+  <!-- Help Section -->
+  <section class="info-section snap-section" id="help">
+    <h2>Help</h2>
+    <p>Need help? Check the README on GitHub or contact the developer for support.</p>
+    <div class="scroll-hint"><a href="#about">↓ About</a></div>
+  </section>
+
+  <!-- About Section -->
+  <section class="info-section snap-section" id="about">
+    <h2>About This Tool</h2>
+    <p>This Python-based mod installer helps set up Minecraft mods easily.</p>
+    <ul>
+      <li>Installs Fabric</li>
+      <li>Backs up your mods folder</li>
+      <li>Moves in your new custom mod pack</li>
+    </ul>
+  </section>
+
+  <script>
+    const moon = document.querySelector('.moon');
+    const toggle = document.getElementById('cursor-toggle');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX - moon.offsetWidth / 2;
+      const y = e.clientY - moon.offsetHeight / 2;
+      moon.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        document.body.classList.add('moon-mode');
+        document.body.classList.remove('normal-cursor');
+        moon.style.display = 'block';
+      } else {
+        document.body.classList.remove('moon-mode');
+        document.body.classList.add('normal-cursor');
+        moon.style.display = 'none';
+      }
+    });
+
+    function triggerDownload() {
+      const link = document.createElement('a');
+      link.href = 'assets/main.exe';
+      link.download = 'main.exe';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.getElementById('download-btn').addEventListener('click', triggerDownload);
+  </script>
+</body>
+</html>

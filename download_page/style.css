@@ -1,0 +1,215 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Always hide system cursor in moon mode (fixes hover issue) */
+.moon-mode, .moon-mode * {
+  cursor: none !important;
+}
+
+.normal-cursor, .normal-cursor * {
+  cursor: auto;
+}
+
+html, body {
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  background: radial-gradient(ellipse at bottom, #0d1b2a 0%, #000000 100%);
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+}
+
+/* Scroll sections */
+.snap-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Moon & stars */
+.stars {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  z-index: 0;
+}
+
+.moon {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, #dddddd 20%, #999999 80%);
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.05s linear;
+  box-shadow: 0 0 40px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(6px);
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #4caf50;
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* Download Button */
+.center-button {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid white;
+  padding: 15px 30px;
+  font-size: 20px;
+  border-radius: 12px;
+  transition: transform 0.2s ease, background 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.center-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.4);
+}
+
+.center-button:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.6);
+}
+
+/* Scroll Hint */
+.scroll-hint {
+  position: absolute;
+  bottom: 20px;
+  font-size: 1.2rem;
+  color: #aaa;
+  animation: bounce 2s infinite;
+}
+
+.scroll-hint a {
+  text-decoration: none;
+  color: #aaa;
+}
+
+.scroll-hint a:hover {
+  color: white;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Info Section Text */
+.info-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid white;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+}
+
+.info-section p, .info-section ul {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 700px;
+}
+
+.info-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.info-section li::before {
+  content: "★ ";
+  color: #4caf50;
+}
