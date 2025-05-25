@@ -87,10 +87,12 @@ html, body {
   color: white;
   text-decoration: none;
   font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .nav-links a:hover {
-  color: #4caf50;
+  color: #1a20c9;
 }
 
 /* Toggle switch */
@@ -171,11 +173,13 @@ input:checked + .slider:before {
   font-size: 1.2rem;
   color: #aaa;
   animation: bounce 2s infinite;
+  cursor: pointer;
 }
 
 .scroll-hint a {
   text-decoration: none;
   color: #aaa;
+  cursor: pointer;
 }
 
 .scroll-hint a:hover {
