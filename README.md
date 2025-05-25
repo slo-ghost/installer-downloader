@@ -1,2 +1,3 @@
-# installer-downloader
-A Downloader For The Mod Installer
+# Minecraft Mod Installer
+This Is A Mod Installer For The Server
+All Info You Need Is On Discord And The Installer
